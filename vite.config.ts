@@ -1,20 +1,42 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
+  
+  // Configurações base
+  base: '/',
+  
+  // Configurações de build
+  build: {
+    outDir: 'dist',
+    sourcemap: mode === 'development',
+    minify: mode === 'production',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          firebase: ['firebase'],
+          redux: ['@reduxjs/toolkit', 'react-redux']
+        }
+      }
+    }
+  },
+  
+  // Configurações do servidor de desenvolvimento
   server: {
     host: true,
     port: 5173,
     allowedHosts: [
-      'backend-production-ce11b.up.railway.appp',
+      'contrato-claro-backend-production.up.railway.app',
+      'app.naosefoda.com.br',
       '.ngrok-free.app'
     ],
     proxy: {
       '/api': {
-        target: 'backend-production-ce11b.up.railway.app',
+        target: 'https://contrato-claro-backend-production.up.railway.app',
         changeOrigin: true,
-        secure: false,
+        secure: true,
         ws: true
       }
     },
@@ -23,5 +45,17 @@ export default defineConfig({
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
       'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
     }
+  },
+  
+  // Configurações de preview
+  preview: {
+    port: 4173,
+    host: true
+  },
+  
+  // Configurações de ambiente
+  define: {
+    __APP_VERSION__: JSON.stringify(process.env.npm_package_version),
+    __BUILD_TIME__: JSON.stringify(new Date().toISOString())
   }
-}) 
+})) 
