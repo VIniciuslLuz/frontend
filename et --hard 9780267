@@ -1,0 +1,5 @@
+[33mcd0a71e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m  SEGURANÇA CRÍTICA: Removidas TODAS as chaves do Firebase do código fonte
+[33m0849d35[m  SEGURANÇA: Removidas chaves hardcoded do Firebase, usando variáveis de ambiente
+[33m9780267[m Frontend configurado para produção com Railway
+[33m70dece2[m Resolvido conflitos no App.tsx e SuccessScreen.tsx
+[33mb6463f5[m atualização total do front
