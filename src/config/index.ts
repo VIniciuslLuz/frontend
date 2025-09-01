@@ -7,10 +7,10 @@ export const APP_CONFIG = {
   
   // URLs da aplicação
   FRONTEND_URL: 'https://app.naosefoda.com.br',
-  BACKEND_URL: 'https://contrato-claro-backend-production.up.railway.app',
+  BACKEND_URL: 'http://localhost:3001', // Temporariamente local para teste
   
   // Configurações de produção
-  IS_PRODUCTION: true,
+  IS_PRODUCTION: false, // Temporariamente false para teste local
   DEBUG_MODE: false,
   
   // Timeouts e configurações de API

@@ -34,11 +34,12 @@ const App = () => {
 
   return (
     <>
+      {/* Temporariamente comentado para resolver erro de renderização */}
+      {/* {isAuthenticated && user && <ProfileMenu user={user} />} */}
       
       <Routes>
-      <Route path="/cancel" element={<div className="app-bg"><CancelScreen /></div>} />
-      <Route path="/success" element={<div className="app-bg"><SuccessScreen /></div>} />
-         {isAuthenticated && user && <ProfileMenu user={user} />}
+        <Route path="/cancel" element={<div className="app-bg"><CancelScreen /></div>} />
+        <Route path="/success" element={<div className="app-bg"><SuccessScreen /></div>} />
         <Route path="/register" element={<div className="app-bg"><RegisterScreen /></div>} />
         <Route path="/login" element={<div className="app-bg"><LoginScreen /></div>} />
         <Route path="/analises" element={<div className="app-bg"><AnalysesHistoryScreen /></div>} />

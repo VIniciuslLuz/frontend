@@ -38,6 +38,8 @@ const UploadScreen = () => {
       }
 
       console.log('Iniciando upload do arquivo:', file.name);
+      console.log('URL da API:', API_URLS.ANALISAR_CONTRATO);
+      console.log('FormData:', formData);
 
       const response = await fetch(API_URLS.ANALISAR_CONTRATO, {
         method: 'POST',
@@ -48,6 +50,7 @@ const UploadScreen = () => {
       });
 
       console.log('Resposta recebida:', response.status);
+      console.log('Headers da resposta:', response.headers);
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
